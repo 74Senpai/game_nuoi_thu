@@ -1,6 +1,6 @@
 // src/components/PetState.js
 import React, { useState, useEffect, useRef } from 'react';
-import { Pet } from '../utils';
+import { Pet } from '../../utils';
 
 
 export function PetState() {

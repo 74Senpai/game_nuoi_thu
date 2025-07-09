@@ -1,6 +1,6 @@
 import '../styles/App.css';
 import Home from './Home';
-import {Button3D , SettingButton ,PetState, Pet} from '../components';
+import {SettingButton , PetState, Pet} from '../components';
 import '../components/Pet/Pet.js';
 import '../styles/Button.css'
 import '../styles/PetState.css'
