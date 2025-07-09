@@ -1,25 +1,70 @@
 .pet-state{
-    background-color: rgba(255, 255, 255, 0.2);
     max-width: 300px;
     border-radius: 10px;
     padding: 10px;
-    box-shadow: 0 18px 20px rgba(0, 0, 0, 0.1);
+    
 }
-.status-box{
-    background-color: blue;
+.status-box-energy{
+    background-color: rgb(0, 200, 255);
+    height: 100%;
+    
+}
+.status-box-happiness{
+    background-color: rgb(255,223,0);
+    height: 100%;
+    
+}
+.status-box-health{
+    background-color: rgb(0, 200, 0);
     height: 100%;
 }
-.bar-energy{
+
+
+.bar-energy ,.bar-happiness,.bar-health{
     height: 30px;
     position: relative;
     text-align: center;
-    border: 2px solid rgb(127, 125, 125);
+    border: 1px solid rgb(127, 125, 125);
     border-radius: 10px;
-    color: white;
+    color: rgb(58, 29, 29);
     width: 100%;
     overflow: hidden;
+    margin: 0 0 4px 0;
 }
+.bar-energy{
+    animation: tranform 0.7s ease forwards;
+}
+
+.bar-happiness{
+    animation: tranform 1s ease forwards;
+}
+.bar-health{
+    animation: tranform 1.3s ease forwards;
+}
+@keyframes tranform {
+    0%{
+        opacity: 0;
+        transform: translateY(-100%);
+    }
+    100%{
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+
 .bar-energy p{
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 10%)
+}
+.bar-happiness p{
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 10%)
+}
+.bar-health p{
     position: absolute;
     left: 50%;
     transform: translate(-50%, 10%)

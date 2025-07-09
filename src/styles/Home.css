@@ -19,9 +19,11 @@
 .home-background-ground{
     background-color: chocolate;
     width: 100%;
-    height: 65vh;
-    
+    height: 50vh;
+    position: relative;
 }
+
+
 
 /* Main container */
 .home-background-sky {
@@ -36,9 +38,8 @@
   position: absolute;
   top: 0;
   left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(to bottom, #60a5fa, #93c5fd, #bfdbfe);
+  height: 35vh;
+  background: linear-gradient(to bottom, #56a2ff, #93c5fd, #a8cfff);
 }
 
 /* Cloud layers */
@@ -57,8 +58,8 @@
 
 /* Individual cloud positions and animations */
 .cloud1 {
-  top: 80px;
-  left: 10%;
+  top: 30px;
+  left: 30%;
   width: 128px;
   height: 64px;
   opacity: 0.8;
@@ -66,7 +67,7 @@
 }
 
 .cloud2 {
-  top: 128px;
+  top: 80px;
   right: 20%;
   width: 96px;
   height: 48px;
@@ -75,8 +76,8 @@
 }
 
 .cloud3 {
-  top: 64px;
-  left: 50%;
+  top: 25px;
+  left: 45%;
   width: 112px;
   height: 56px;
   opacity: 0.75;
@@ -84,7 +85,7 @@
 }
 
 .cloud4 {
-  top: 160px;
+  top: 110px;
   left: 25%;
   width: 144px;
   height: 72px;
@@ -94,7 +95,7 @@
 }
 
 .cloud5 {
-  top: 96px;
+  top: 46px;
   right: 25%;
   width: 128px;
   height: 64px;
@@ -104,7 +105,7 @@
 }
 
 .cloud6 {
-  top: 224px;
+  top: 180px;
   left: 75%;
   width: 112px;
   height: 56px;
@@ -114,7 +115,7 @@
 }
 
 .cloud7 {
-  top: 240px;
+  top: 195px;
   left: 20px;
   width: 160px;
   height: 80px;
@@ -124,7 +125,7 @@
 }
 
 .cloud8 {
-  top: 320px;
+  top: 240px;
   right: 32px;
   width: 176px;
   height: 88px;
@@ -147,12 +148,12 @@
 }
 
 .bird1 {
-  top: 128px;
+  top: 80px;
   animation: flyLeft 15s linear infinite;
 }
 
 .bird2 {
-  top: 192px;
+  top: 150px;
   font-size: 14px;
   color: #6b7280;
   animation: flyLeftSlow 20s linear infinite;
@@ -160,8 +161,8 @@
 }
 
 .bird3 {
-  top: 256px;
-  font-size: 18px;
+  top: 185px;
+  font-size: 24px;
   color: #1f2937;
   animation: flyLeftFast 10s linear infinite;
   animation-delay: 10s;
@@ -175,23 +176,6 @@
   align-items: center;
   justify-content: center;
   height: 100%;
-}
-
-.text-center {
-  text-align: center;
-  color: white;
-}
-
-.title {
-  font-size: 4rem;
-  font-weight: bold;
-  margin-bottom: 1rem;
-  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-}
-
-.subtitle {
-  font-size: 1.25rem;
-  text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
 }
 
 /* Section styles */
@@ -234,49 +218,49 @@
 /* Cloud float animations */
 @keyframes cloudFloat1 {
   0% { transform: translateX(0px); }
-  50% { transform: translateX(30px); }
+  50% { transform: translateX(50px); }
   100% { transform: translateX(0px); }
 }
 
 @keyframes cloudFloat2 {
   0% { transform: translateX(0px); }
-  50% { transform: translateX(-20px); }
+  50% { transform: translateX(-30px); }
   100% { transform: translateX(0px); }
 }
 
 @keyframes cloudFloat3 {
   0% { transform: translateX(0px); }
-  50% { transform: translateX(25px); }
+  50% { transform: translateX(35px); }
   100% { transform: translateX(0px); }
 }
 
 @keyframes cloudFloat4 {
   0% { transform: translateX(0px); }
-  50% { transform: translateX(-15px); }
+  50% { transform: translateX(-25px); }
   100% { transform: translateX(0px); }
 }
 
 @keyframes cloudFloat5 {
   0% { transform: translateX(0px); }
-  50% { transform: translateX(35px); }
+  50% { transform: translateX(45px); }
   100% { transform: translateX(0px); }
 }
 
 @keyframes cloudFloat6 {
   0% { transform: translateX(0px); }
-  50% { transform: translateX(-25px); }
+  50% { transform: translateX(-35px); }
   100% { transform: translateX(0px); }
 }
 
 @keyframes cloudFloat7 {
   0% { transform: translateX(0px); }
-  50% { transform: translateX(20px); }
+  50% { transform: translateX(30px); }
   100% { transform: translateX(0px); }
 }
 
 @keyframes cloudFloat8 {
   0% { transform: translateX(0px); }
-  50% { transform: translateX(-30px); }
+  50% { transform: translateX(-40px); }
   100% { transform: translateX(0px); }
 }
 
@@ -294,4 +278,64 @@
 @keyframes flyLeftFast {
   0% { transform: translateX(100vw); }
   100% { transform: translateX(-100px); }
+}
+
+.game-frame{
+    /* overflow: hidden; */
+    position: absolute;
+    right: 15%;
+    top: -25%;
+    width: 20%;
+}
+
+/* TV Design */
+.TV-design{
+    position: relative;
+    width: 400px;
+    height: 240px;
+    border: 3px solid black;
+    align-items: center;
+    text-align: center;
+}
+
+.TV-boder{
+   width: 100%;
+   height: 100%;
+   border: 3px solid gray; 
+}
+.TV-content{
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    border: 1px solid rgb(0, 0, 0); 
+    background-color: rgb(0, 0, 0);
+    padding-top: 2px;
+}
+.TV-content > *{
+    border: 0px;
+    margin: 0px;
+    height: 100%;
+    width: 100%;
+}
+.TV-leg{
+    position: absolute ;
+    border: 1px solid rgba(208, 185, 185, 0);
+    width: 20px;
+    height: 20px;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 25px solid #555;
+    height: 0;
+}
+
+.TV-leg.left{
+    bottom: 0;
+    left: 20px;
+    transform:  translate(0, 100%);
+}
+
+.TV-leg.right{
+    bottom: 0;
+    right: 20px;
+    transform:  translate(0, 100%);
 }

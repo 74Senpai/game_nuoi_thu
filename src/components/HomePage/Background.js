@@ -1,9 +1,28 @@
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
+import tv from "../../assets/tv.png";
+
+
+function TV({children}){
+    return (
+        <div className="TV-design">
+            <div className="TV-boder">
+                <div className="TV-content">{children}</div>
+            </div>
+            <div className="TV-leg left"></div>
+            <div className="TV-leg right"></div>
+        </div>
+        
+    )
+}
 
 function Ground() {
     return (
         <div className="home-background-ground">
-
+            <div className="game-frame">
+                <TV>
+                    <iframe width="auto" src="https://www.youtube.com/embed/spuO7OpS6zw?&autoplay=1&mute=1"></iframe>
+                </TV>
+            </div>
         </div>
     )
 }
@@ -19,10 +38,7 @@ function Sky() {
 
     return (
         <div className="home-background-sky">
-            {/* Sky gradient background */}
             <div className="sky-background"></div>
-
-            {/* Far clouds - slowest parallax */}
             <div
                 className="cloud-layer"
                 style={{ transform: `translateY(${scrollY * 0.1}px)` }}
@@ -32,7 +48,6 @@ function Sky() {
                 <div className="cloud cloud3"></div>
             </div>
 
-            {/* Medium clouds - medium parallax */}
             <div
                 className="cloud-layer"
                 style={{ transform: `translateY(${scrollY * 0.2}px)` }}
@@ -42,7 +57,6 @@ function Sky() {
                 <div className="cloud cloud6"></div>
             </div>
 
-            {/* Close clouds - faster parallax */}
             <div
                 className="cloud-layer"
                 style={{ transform: `translateY(${scrollY * 0.3}px)` }}
@@ -51,7 +65,6 @@ function Sky() {
                 <div className="cloud cloud8"></div>
             </div>
 
-            {/* Flying birds */}
             <div className="bird-container">
                 <div className="bird bird1">🐦</div>
                 <div className="bird bird2">🐦</div>

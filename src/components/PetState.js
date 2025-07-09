@@ -1,5 +1,5 @@
 // src/components/PetState.js
-import React, { useState, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Pet } from '../utils';
 
 
@@ -7,36 +7,65 @@ export function PetState() {
   const petRef = useRef(new Pet(100, 100, 100));
   const [text, setText] = useState(petRef.current.getPet());
 
-  const decreaseEnergy = () => {
-    const newPet = petRef.current.updateEnergyPet(-10);
-    setText(newPet);
-  };
+//   function decreaseEnergy() {
+//     const newPet = petRef.current.updateEnergyPet(-10);
+//     const bar = document.getElementsByClassName('status-box-energy')[0]
+//     if (newPet.energy === 50) {
+//       bar.style.backgroundColor = "rgb(0, 150, 255)"
+//     }
+//     else if (newPet.energy === 25) {
+//       bar.style.backgroundColor = "rgb(0, 100, 255)"
+//     }
+//     setText(newPet)
+//   };
 
-  const decreaseHappiness = () => {
-    const newPet = petRef.current.updateHappinessPet(-10);
-    setText(newPet); 
+  function decreaseHealth() {
+    const bar = document.getElementsByClassName('status-box-health')[0]
+    const newPet = petRef.current.updateHealthPet(-5);
+    if (newPet.health === 75) {
+      bar.style.backgroundColor = "rgb(255, 200, 0)"
+    }
+    else if (newPet.health === 50) {
+      bar.style.backgroundColor = "rgb(255, 100, 0)"
+    }
+    else if (newPet.health === 25) {
+      bar.style.backgroundColor = "rgb(200, 0, 0)"
+    }
+    setText(newPet)
   };
-
-  const decreaseHealth = () => {
-    const newPet = petRef.current.updateHealthPet(-10);
-    setText(newPet);
+  function decreaseHappiness() {
+    const newPet = petRef.current.updateHappinessPet(-5);
+    const bar = document.getElementsByClassName('status-box-happiness')[0]
+    if (newPet.happiness === 50) {
+      bar.style.backgroundColor = "rgb(255,165,0)"
+    }
+    else if (newPet.happiness === 25) {
+      bar.style.backgroundColor = "rgb(255,105,180)"
+    }
+    if (newPet.happiness <= 0) {
+      decreaseHealth()
+    } else {
+      setText(newPet);
+    }
   };
+  useEffect(() => {
+    const timer = setInterval(() => {
+      decreaseHappiness()
+    }, 5000);
+    return () => clearInterval(timer);
+  }, []);
 
   return (
     <div className="pet-state">
-        <div className="bar-energy" >
-            <div className='status-box' style={{width: `${text.energy}%`}}><p >Energy</p></div>
-        </div>
-        <div className="bar-happiness">
-            <p>Happiness: </p> <div className='bar'>{text.happiness}</div>
-            <div className='status-box' style={{width: `${text.happiness}%`}}><p >happiness</p></div>
-        </div>
-        <div className="bar-health">
-            <p>Health: </p> <div className='bar'> {text.health} </div>
-        </div>
-        {/* <button onClick={decreaseEnergy}>Decrease Energy</button>
-        <button onClick={decreaseHappiness}>Decrease Happy</button>
-        <button onClick={decreaseHealth}>Decrease Health</button> */}
+      <div className="bar-energy" >
+        <div className='status-box-energy' style={{ width: `${text.energy}%` }}><p >Energy</p></div>
+      </div>
+      <div className="bar-happiness">
+        <div className='status-box-happiness' style={{ width: `${text.happiness}%` }}><p >Happiness</p></div>
+      </div>
+      <div className="bar-health">
+        <div className='status-box-health' style={{ width: `${text.health}%` }}><p >Health</p></div>
+      </div>
     </div>
   );
 }
