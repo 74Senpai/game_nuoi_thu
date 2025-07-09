@@ -1,8 +1,7 @@
-import logo from '../assets/logo.svg';
 import '../styles/App.css';
 import Home from './Home';
-import {Button3D , SettingButton ,PetState} from '../components';
-
+import {Button3D , SettingButton ,PetState, Pet} from '../components';
+import '../components/Pet/Pet.js';
 import '../styles/Button.css'
 import '../styles/PetState.css'
 
@@ -13,6 +12,7 @@ function App() {
       <PetState/>
       {/* <Button3D/> */}
       <SettingButton/>
+      <Pet/>
     </div>
   );
 }

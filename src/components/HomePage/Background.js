@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import tv from "../../assets/tv.png";
 
-
 function TV({children}){
     return (
         <div className="TV-design">
