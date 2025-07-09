@@ -1,0 +1,51 @@
+.btn-3d {
+    background: linear-gradient(45deg, #ff9a9e, #fad0c4);
+    border: none;
+    color: #333;
+    padding: 15px 30px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 10px;
+    position: relative;
+    transition: all 0.1s ease;
+    box-shadow: 0 6px 0 #d63384, 0 8px 10px rgba(0, 0, 0, 0.2);
+}
+
+.btn-3d:hover {
+    transform: translateY(2px);
+    box-shadow: 0 4px 0 #d63384, 0 6px 8px rgba(0, 0, 0, 0.2);
+}
+
+.btn-3d:active {
+    transform: translateY(6px);
+    box-shadow: 0 0px 0 #d63384, 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.setting-button {
+    position: fixed;
+    top: 16px;
+    right: 16px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    transition: background-color 0.2s ease;
+    z-index: 1000;
+}
+
+.setting-button:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.setting-icon {
+    width: 36px;
+    height: 36px;
+    color: #333;
+    transition: transform 0.5s ease;
+}
+
+.setting-button:hover .setting-icon {
+    transform: rotate(90deg);
+}

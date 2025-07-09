@@ -1,0 +1,26 @@
+.pet-state{
+    background-color: rgba(255, 255, 255, 0.2);
+    max-width: 300px;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0 18px 20px rgba(0, 0, 0, 0.1);
+}
+.status-box{
+    background-color: blue;
+    height: 100%;
+}
+.bar-energy{
+    height: 30px;
+    position: relative;
+    text-align: center;
+    border: 2px solid rgb(127, 125, 125);
+    border-radius: 10px;
+    color: white;
+    width: 100%;
+    overflow: hidden;
+}
+.bar-energy p{
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 10%)
+}

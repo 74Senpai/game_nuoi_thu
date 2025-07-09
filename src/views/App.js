@@ -1,23 +1,18 @@
 import logo from '../assets/logo.svg';
 import '../styles/App.css';
+import Home from './Home';
+import {Button3D , SettingButton ,PetState} from '../components';
+
+import '../styles/Button.css'
+import '../styles/PetState.css'
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Home/>
+      <PetState/>
+      {/* <Button3D/> */}
+      <SettingButton/>
     </div>
   );
 }
