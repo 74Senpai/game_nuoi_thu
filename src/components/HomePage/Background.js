@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Pet } from "../Pet";
 
 function TV({children}){
     return (
@@ -16,9 +17,10 @@ function TV({children}){
 function Ground() {
     return (
         <div className="home-background-ground">
+            <Pet />
             <div className="game-frame">
                 <TV>
-                    <iframe width="auto" src="https://www.youtube.com/embed/spuO7OpS6zw?&autoplay=1&mute=1"></iframe>
+                    <iframe src="https://www.youtube.com/embed/meD8VYuh8Ao?si=azJUeEihPz5bONT5&amp;controls=0" frameborder="0" allow="autoplay;" referrerpolicy="strict-origin-when-cross-origin"></iframe>
                 </TV>
             </div>
         </div>

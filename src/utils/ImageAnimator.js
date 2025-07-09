@@ -20,7 +20,11 @@ export function ImageAnimator({ images, interval = 100 }) {
     }
     const imageUrl = `${process.env.REACT_APP_IMG_FRAME_URL}` + `${images[index]}`
         return (
-        <img src={imageUrl} alt={`frame-${index}`}  onError={(e) => console.error('Image load error:', e)}/>
+        <img 
+            src={imageUrl} 
+            className='pet-frame'
+            alt={`frame-${index}`}  
+            onError={(e) => console.error('Image load error:', e)}/>
         
     );
 }

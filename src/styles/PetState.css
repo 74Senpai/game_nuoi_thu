@@ -69,3 +69,7 @@
     left: 50%;
     transform: translate(-50%, 10%)
 }
+
+.pet-frame{
+    width: 100px;
+}

@@ -2,25 +2,25 @@ import { ImageAnimator } from "../../utils";
 
 export function Pet() {
     const frames = [
-        'frame0000.png',
-        'frame0001.png',
-        'frame0002.png',
-        'frame0003.png',
-        'frame0004.png',
-        'frame0005.png',
-        'frame0006.png',
-        'frame0007.png',
-        'frame0008.png',
-        'frame0009.png',
-        'frame0010.png',
-        'frame0011.png',
-        'frame0012.png',
-        'frame0013.png',
-        'frame0014.png',
-        'frame0015.png',
-        'frame0016.png',
-        'frame0017.png',
-        'frame0018.png'
+        'frame0000_cop.png',
+        'frame0001_cop.png',
+        'frame0002_cop.png',
+        'frame0003_cop.png',
+        'frame0004_cop.png',
+        'frame0005_cop.png',
+        'frame0006_cop.png',
+        'frame0007_cop.png',
+        'frame0008_cop.png',
+        'frame0009_cop.png',
+        'frame0010_cop.png',
+        'frame0011_cop.png',
+        'frame0012_cop.png',
+        'frame0013_cop.png',
+        'frame0014_cop.png',
+        'frame0015_cop.png',
+        'frame0016_cop.png',
+        'frame0017_cop.png',
+        'frame0018_cop.png'
     ];
 
     return (

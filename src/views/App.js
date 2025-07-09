@@ -1,6 +1,6 @@
 import '../styles/App.css';
 import Home from './Home';
-import {SettingButton , PetState, Pet} from '../components';
+import {SettingButton , PetState} from '../components';
 import '../components/Pet/Pet.js';
 import '../styles/Button.css'
 import '../styles/PetState.css'
@@ -12,7 +12,6 @@ function App() {
       <PetState/>
       {/* <Button3D/> */}
       <SettingButton/>
-      <Pet/>
     </div>
   );
 }
