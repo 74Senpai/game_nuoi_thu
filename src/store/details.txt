@@ -1,0 +1,1 @@
+Nơi lưu trữ dữ liệu khởi tạo, trạng thái, .... các dữ liệu dài hạn
