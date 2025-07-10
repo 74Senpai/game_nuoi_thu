@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Pet } from "../Pet";
 
 function TV({children}){
@@ -14,6 +14,28 @@ function TV({children}){
     )
 }
 
+function BackgroundMusic() {
+  const audioRef = useRef(null);
+
+  const handlePlay = () => {
+    audioRef.current.play();
+  };
+
+  return (
+    <div className='speaker-design'>
+        <div className="speaker-border">
+            <div className="speaker-output">
+                <div className="speaker"></div>
+                <audio ref={audioRef} src={process.env.REACT_APP_MUSIC_URL} loop /> 
+            </div>
+            <div className="speaker-output"><div className="speaker"></div></div>
+            <div className="speaker-output"><div className="speaker"></div></div>
+        </div>
+    </div>
+  );
+}
+
+
 function Ground() {
     return (
         <div className="home-background-ground">
@@ -22,6 +44,7 @@ function Ground() {
                 <TV>
                     <iframe src="https://www.youtube.com/embed/meD8VYuh8Ao?si=azJUeEihPz5bONT5&amp;controls=0" frameborder="0" allow="autoplay;" referrerpolicy="strict-origin-when-cross-origin"></iframe>
                 </TV>
+                <BackgroundMusic />
             </div>
         </div>
     )
