@@ -1,66 +1,83 @@
 // src/components/PetState.js
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useContext, useState, useEffect, useRef } from 'react';
 import { Pet } from '../../utils';
-
+import { PetContext } from './/Petcontext.js';
 
 export function PetState() {
-  const petRef = useRef(new Pet(100, 100, 100));
-  const [text, setText] = useState(petRef.current.getPet());
-  const [happiness,setHappiness] = useState('sentiment_satisfied')
+  const {
+    energy, setEnergy,
+    happiness, setHappiness,
+    health, setHealth
+  } = useContext(PetContext);
 
-//   function decreaseEnergy() {
-//     const newPet = petRef.current.updateEnergyPet(-10);
-//     const bar = document.getElementsByClassName('status-box-energy')[0]
-//     if (newPet.energy === 50) {
-//       bar.style.backgroundColor = "rgb(0, 150, 255)"
-//     }
-//     else if (newPet.energy === 25) {
-//       bar.style.backgroundColor = "rgb(0, 100, 255)"
-//     }
-//     setText(newPet)
-//   };
+  const [happinessIcon, setHappinessIcon] = useState('sentiment_satisfied');
+
+  function updateEnergyUI(value) {
+    const bar = document.querySelector('.status-box-energy');
+    if (!bar) return;
+
+    if (value <= 25) bar.style.backgroundColor = "rgb(0, 100, 255)";
+    else if (value <= 50) bar.style.backgroundColor = "rgb(0, 150, 255)";
+    else bar.style.backgroundColor = "";
+  }
+
+  function decreaseEnergy() {
+    setEnergy((prev) => {
+      const newEnergy = Math.max(0, prev - 0.5);
+      updateEnergyUI(newEnergy);
+      return newEnergy;
+    });
+  }
+  function updateHealthUI(value) {
+    const bar = document.querySelector('.status-box-health');
+    if (!bar) return;
+
+    if (value <= 25) bar.style.backgroundColor = "rgb(200, 0, 0)";
+    else if (value <= 50) bar.style.backgroundColor = "rgb(255, 100, 0)";
+    else if (value <= 75) bar.style.backgroundColor = "rgb(255, 200, 0)";
+    else bar.style.backgroundColor = "";
+  }
+
+  function updateHappinessUI(value) {
+    const bar = document.querySelector('.status-box-happiness');
+    if (!bar) return;
+
+    if (value <= 25) bar.style.backgroundColor = "rgb(255,105,180)";
+    else if (value <= 50) bar.style.backgroundColor = "rgb(255,165,0)";
+    else bar.style.backgroundColor = "";
+  }
 
   function decreaseHealth() {
-    const bar = document.getElementsByClassName('status-box-health')[0]
-    
-    const newPet = petRef.current.updateHealthPet(-5);
-    if (newPet.health === 75) {
-      bar.style.backgroundColor = "rgb(255, 200, 0)"
-    }
-    
-    else if (newPet.health === 50) {
-      bar.style.backgroundColor = "rgb(255, 100, 0)"
-      
-    }
-    else if (newPet.health === 25) {
-      bar.style.backgroundColor = "rgb(200, 0, 0)"
-    }
-    setText(newPet)
-  };
+    setHealth(prev => {
+      const newHealth = Math.max(0, prev - 5);
+      updateHealthUI(newHealth);
+      return newHealth;
+    });
+  }
+
   function decreaseHappiness() {
-    const newPet = petRef.current.updateHappinessPet(-0.5);
-    const bar = document.getElementsByClassName('status-box-happiness')[0]
-    if (newPet.happiness === 50) {
-      bar.style.backgroundColor = "rgb(255,165,0)"
-    }
-    else if (newPet.happiness === 25) {
-      bar.style.backgroundColor = "rgb(255,105,180)"
-    }
-    if(newPet.happiness > 50){
-      setHappiness('sentiment_satisfied')
-    }
-    else{
-      setHappiness('sentiment_dissatisfied')
-    }
-    if (newPet.happiness <= 0) {
-      decreaseHealth()
-    } else {
-      setText(newPet);
-    }
-  };
+    setHappiness(prev => {
+      const newHappiness = Math.max(0, prev - 0.5);
+      updateHappinessUI(newHappiness);
+
+      if (newHappiness > 50) {
+        setHappinessIcon('sentiment_satisfied');
+      } else {
+        setHappinessIcon('sentiment_dissatisfied');
+      }
+
+      if (newHappiness <= 0 && happiness === 0) {
+        decreaseHealth();
+      }
+
+      return newHappiness;
+    });
+  }
+  
   useEffect(() => {
     const timer = setInterval(() => {
       decreaseHappiness()
+      decreaseEnergy();
     }, 5000);
     return () => clearInterval(timer);
   }, []);
@@ -68,13 +85,13 @@ export function PetState() {
   return (
     <div className="pet-state">
       <div className="bar-energy" >
-        <div className='status-box-energy' style={{ width: `${text.energy}%` }}><p ><span class="material-symbols-outlined">bolt</span></p></div>
+        <div className='status-box-energy' style={{ width: `${energy}%` }}><p ><span class="material-symbols-outlined">bolt</span></p></div>
       </div>
       <div className="bar-happiness">
-        <div className='status-box-happiness' style={{ width: `${text.happiness}%` }}><p ><span class="material-symbols-outlined">{happiness}</span></p></div>
+        <div className='status-box-happiness' style={{ width: `${happiness}%` }}><p ><span class="material-symbols-outlined">{happinessIcon}</span></p></div>
       </div>
       <div className="bar-health">
-        <div className='status-box-health' style={{ width: `${text.health}%` }}><p ><span class="material-symbols-outlined">health_cross</span></p></div>
+        <div className='status-box-health' style={{ width: `${health}%` }}><p ><span class="material-symbols-outlined">health_cross</span></p></div>
       </div>
     </div>
   );

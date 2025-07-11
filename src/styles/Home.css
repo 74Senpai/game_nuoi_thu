@@ -310,6 +310,7 @@
    display: inline-block;
 }
 .TV-content{
+    padding: 2px;
     overflow: hidden;
     width: 100%;
     height: 100%;

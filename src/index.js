@@ -3,12 +3,15 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './views/App';
 import reportWebVitals from './reportWebVitals';
+import { PetProvider } from './components/Pet/Petcontext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
+  <PetProvider>
   <React.StrictMode>
     <App />
   </React.StrictMode>
+  </PetProvider>
 );
 
 // If you want to start measuring performance in your app, pass a function

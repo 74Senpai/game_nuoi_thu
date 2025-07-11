@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Pet } from "../Pet";
+import { FoodsBox } from "../Food/Food.js";
+import { Dino } from "../Dino.js";
 
 function TV({children}){
     return (
@@ -18,15 +20,23 @@ function BackgroundMusic() {
   const audioRef = useRef(null);
 
   const handlePlay = () => {
-    audioRef.current.play();
+    if (audioRef.current) {
+      if (audioRef.current.paused) {
+        audioRef.current.play();
+      } else {
+        audioRef.current.pause();
+      }
+    }
+    
+    
   };
 
   return (
     <div className='speaker-design'>
-        <div className="speaker-border">
-            <div className="speaker-output">
+        <div className="speaker-border" >
+            <div className="speaker-output" onClick={handlePlay}>
                 <div className="speaker"></div>
-                <audio ref={audioRef} src={process.env.REACT_APP_MUSIC_URL} loop /> 
+                <audio ref={audioRef} src="https://vnso-pt-8-tf-a128-z3.zmdcdn.me/647304784fab51cc003595fcc5d0295d?authen=exp=1752396372~acl=/647304784fab51cc003595fcc5d0295d*~hmac=014644f93857b4cd4525fe9e72ed65c9" loop /> 
             </div>
             <div className="speaker-output"><div className="speaker"></div></div>
             <div className="speaker-output"><div className="speaker"></div></div>
@@ -40,9 +50,10 @@ function Ground() {
     return (
         <div className="home-background-ground">
             <Pet />
+            <FoodsBox />
             <div className="game-frame">
                 <TV>
-                    <iframe src="https://www.youtube.com/embed/meD8VYuh8Ao?si=azJUeEihPz5bONT5&amp;controls=0" frameborder="0" allow="autoplay;" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+                    <Dino />
                 </TV>
                 <BackgroundMusic />
             </div>
@@ -102,6 +113,7 @@ export function Background() {
         <div className="home-background">
             <Sky />
             <Ground />
+            
         </div>
     )
 }
