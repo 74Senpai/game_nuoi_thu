@@ -1,7 +1,7 @@
 import { ImageAnimator } from "../../utils";
 import { PET_EAT_FRAMES } from '../../store';
 import { PetContext } from './/Petcontext.js';
-import React, { useContext, useState,useEffect } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 
 export function Pet() {
     const { energy, happiness, health } = useContext(PetContext);
@@ -31,11 +31,7 @@ export function Pet() {
         }
     }, [health, energy, happiness]);
 
-
-
-
     return (<>
-
         <div>
             <p>{animation}</p>
             {/* <ImageAnimator images={animation} interval={300} /> */}

@@ -73,3 +73,22 @@
 .pet-frame{
     width: 100px;
 }
+.floating-number {
+  position: absolute;
+  color: #000000;
+  animation: floatUp 1.5s ease-out forwards;
+  font-weight: bold;
+  pointer-events: none;
+  left: 90%; 
+}
+
+@keyframes floatUp {
+  0% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+}

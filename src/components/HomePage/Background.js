@@ -3,7 +3,7 @@ import { Pet } from "../Pet";
 import { FoodsBox } from "../Food/Food.js";
 import { Dino } from "../Dino.js";
 
-function TV({children}){
+function TV({ children }) {
     return (
         <div className="TV-design">
             <div className="TV-boder">
@@ -12,39 +12,36 @@ function TV({children}){
             <div className="TV-leg left"></div>
             <div className="TV-leg right"></div>
         </div>
-        
+
     )
 }
 
 function BackgroundMusic() {
-  const audioRef = useRef(null);
+    const audioRef = useRef(null);
 
-  const handlePlay = () => {
-    if (audioRef.current) {
-      if (audioRef.current.paused) {
-        audioRef.current.play();
-      } else {
-        audioRef.current.pause();
-      }
-    }
-    
-    
-  };
+    const handlePlay = () => {
+        if (audioRef.current) {
+            if (audioRef.current.paused) {
+                audioRef.current.play();
+            } else {
+                audioRef.current.pause();
+            }
+        }
+    };
 
-  return (
-    <div className='speaker-design'>
-        <div className="speaker-border" >
-            <div className="speaker-output" onClick={handlePlay}>
-                <div className="speaker"></div>
-                <audio ref={audioRef} src="https://vnso-pt-8-tf-a128-z3.zmdcdn.me/647304784fab51cc003595fcc5d0295d?authen=exp=1752396372~acl=/647304784fab51cc003595fcc5d0295d*~hmac=014644f93857b4cd4525fe9e72ed65c9" loop /> 
+    return (
+        <div className='speaker-design'>
+            <div className="speaker-border" >
+                <div className="speaker-output" onClick={handlePlay}>
+                    <div className="speaker"></div>
+                    <audio ref={audioRef} src={process.env.REACT_APP_MUSIC_URL + 'Morning.mp3'} loop />
+                </div>
+                <div className="speaker-output"><div className="speaker"></div></div>
+                <div className="speaker-output"><div className="speaker"></div></div>
             </div>
-            <div className="speaker-output"><div className="speaker"></div></div>
-            <div className="speaker-output"><div className="speaker"></div></div>
         </div>
-    </div>
-  );
+    );
 }
-
 
 function Ground() {
     return (
@@ -113,7 +110,6 @@ export function Background() {
         <div className="home-background">
             <Sky />
             <Ground />
-            
         </div>
     )
 }

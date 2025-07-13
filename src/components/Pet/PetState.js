@@ -1,6 +1,6 @@
 // src/components/PetState.js
 import React, { useContext, useState, useEffect, useRef } from 'react';
-import { Pet } from '../../utils';
+
 import { PetContext } from './/Petcontext.js';
 
 export function PetState() {
@@ -11,42 +11,42 @@ export function PetState() {
   } = useContext(PetContext);
 
   const [happinessIcon, setHappinessIcon] = useState('sentiment_satisfied');
-
+  // UI 
   function updateEnergyUI(value) {
     const bar = document.querySelector('.status-box-energy');
     if (!bar) return;
 
     if (value <= 25) bar.style.backgroundColor = "rgb(0, 100, 255)";
     else if (value <= 50) bar.style.backgroundColor = "rgb(0, 150, 255)";
-    else bar.style.backgroundColor = "";
+    else bar.style.backgroundColor = "rgb(0, 200, 255)";
   }
 
-  function decreaseEnergy() {
-    setEnergy((prev) => {
-      const newEnergy = Math.max(0, prev - 0.5);
-      updateEnergyUI(newEnergy);
-      return newEnergy;
-    });
-  }
   function updateHealthUI(value) {
     const bar = document.querySelector('.status-box-health');
     if (!bar) return;
-
+    
     if (value <= 25) bar.style.backgroundColor = "rgb(200, 0, 0)";
     else if (value <= 50) bar.style.backgroundColor = "rgb(255, 100, 0)";
     else if (value <= 75) bar.style.backgroundColor = "rgb(255, 200, 0)";
-    else bar.style.backgroundColor = "";
+    else bar.style.backgroundColor = "rgb(0, 200, 0)";
   }
-
+  
   function updateHappinessUI(value) {
     const bar = document.querySelector('.status-box-happiness');
     if (!bar) return;
 
     if (value <= 25) bar.style.backgroundColor = "rgb(255,105,180)";
     else if (value <= 50) bar.style.backgroundColor = "rgb(255,165,0)";
-    else bar.style.backgroundColor = "";
+    else bar.style.backgroundColor = "rgb(255, 223, 0)";
   }
-
+  
+  function decreaseEnergy() {
+    setEnergy((prev) => {
+      const newEnergy = Math.max(0, prev - 1);
+      updateEnergyUI(newEnergy);
+      return newEnergy;
+    });
+  }
   function decreaseHealth() {
     setHealth(prev => {
       const newHealth = Math.max(0, prev - 5);
@@ -57,7 +57,7 @@ export function PetState() {
 
   function decreaseHappiness() {
     setHappiness(prev => {
-      const newHappiness = Math.max(0, prev - 0.5);
+      const newHappiness = Math.max(0, prev - 1);
       updateHappinessUI(newHappiness);
 
       if (newHappiness > 50) {
@@ -69,15 +69,17 @@ export function PetState() {
       if (newHappiness <= 0 && happiness === 0) {
         decreaseHealth();
       }
-
       return newHappiness;
     });
   }
-  
+
   useEffect(() => {
     const timer = setInterval(() => {
       decreaseHappiness()
-      decreaseEnergy();
+      // setEnergy(2)
+      // setEnergy(100)
+      // setHappiness(100)
+      // setHealth(100)
     }, 5000);
     return () => clearInterval(timer);
   }, []);

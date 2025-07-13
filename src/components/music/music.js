@@ -10,7 +10,7 @@ export function BackgroundMusic() {
   return (
     <div className='speaker-design'>
       <div>
-        <audio ref={audioRef} src={process.env.REACT_APP_MUSIC_URL} loop /> 
+        <audio ref={audioRef} src={process.env.REACT_APP_MUSIC_URL} loop />
         <button onClick={handlePlay}>Phát nhạc nền</button>
       </div>
     </div>
