@@ -1,25 +1,33 @@
 export const PET_EAT_FRAMES = [
-        'frame0000_cop.png',
-        'frame0001_cop.png',
-        'frame0002_cop.png',
-        'frame0003_cop.png',
-        'frame0004_cop.png',
-        'frame0005_cop.png',
-        'frame0006_cop.png',
-        'frame0007_cop.png',
-        'frame0008_cop.png',
-        'frame0009_cop.png',
-        'frame0010_cop.png',
-        'frame0011_cop.png',
-        'frame0012_cop.png',
-        'frame0013_cop.png',
-        'frame0014_cop.png',
-        'frame0015_cop.png',
-        'frame0016_cop.png',
-        'frame0017_cop.png',
-        'frame0018_cop.png'
+        'bo_hung_frame/frame0000_cop.png',
+        'bo_hung_frame/frame0001_cop.png',
+        'bo_hung_frame/frame0002_cop.png',
+        'bo_hung_frame/frame0003_cop.png',
+        'bo_hung_frame/frame0004_cop.png',
+        'bo_hung_frame/frame0005_cop.png',
+        'bo_hung_frame/frame0006_cop.png',
+        'bo_hung_frame/frame0007_cop.png',
+        'bo_hung_frame/frame0008_cop.png',
+        'bo_hung_frame/frame0009_cop.png',
+        'bo_hung_frame/frame0010_cop.png',
+        'bo_hung_frame/frame0011_cop.png',
+        'bo_hung_frame/frame0012_cop.png',
+        'bo_hung_frame/frame0013_cop.png',
+        'bo_hung_frame/frame0014_cop.png',
+        'bo_hung_frame/frame0015_cop.png',
+        'bo_hung_frame/frame0016_cop.png',
+        'bo_hung_frame/frame0017_cop.png',
+        'bo_hung_frame/frame0018_cop.png'
 ];
 
 export const PET_STAND_FRAMES = [
-        
+        'bo_hung_dung_yen/frame0000_cop.png'
 ];
+
+export const PET_SAD_FRAME = [
+        'bo_hung_buon/bo_buon.png'
+]
+
+export const PET_HUNGRY = [
+        'bo_hung_doi/bo_doibung.png'
+]

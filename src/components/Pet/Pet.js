@@ -1,5 +1,5 @@
 import { ImageAnimator } from "../../utils";
-import { PET_EAT_FRAMES } from '../../store';
+import { PET_EAT_FRAMES, PET_STAND_FRAMES, PET_HUNGRY, PET_SAD_FRAME } from '../../store';
 import { PetContext } from './/Petcontext.js';
 import React, { useContext, useState, useEffect } from 'react';
 
@@ -10,31 +10,30 @@ export function Pet() {
         if (health < 50) {
             return "Quá là ốm luôn";
         } else if (energy < 50) {
-            return "Quá là đói luôn";
+            return PET_HUNGRY;
         } else if (happiness < 50) {
-            return "Quá là buồn luôn";
+            return PET_SAD_FRAME;
         } else {
-            return "Bình Thường";
+            return PET_STAND_FRAMES;
         }
-        return "Bình Thường";
     });
 
     useEffect(() => {
         if (health < 50) {
             setAnimation("Quá là ốm luôn");
         } else if (energy < 50) {
-            setAnimation("Quá là đói luôn");
+            setAnimation(PET_HUNGRY);
         } else if (happiness < 50) {
-            setAnimation("Quá là buồn luôn");
+            setAnimation(PET_SAD_FRAME);
         } else {
-            setAnimation("Bình Thường");
+            setAnimation(PET_STAND_FRAMES);
         }
     }, [health, energy, happiness]);
 
     return (<>
         <div>
-            <p>{animation}</p>
-            {/* <ImageAnimator images={animation} interval={300} /> */}
+            {/* <p>{animation}</p> */}
+            <ImageAnimator images={animation} interval={300} />
         </div>
     </>);
 
