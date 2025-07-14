@@ -5,16 +5,20 @@ export const PetContext = createContext();
 export const PetProvider = ({ children }) => {
     const [energy, setEnergy] = useState(() => {
         const savedEnergy = localStorage.getItem('energy');
-        return savedEnergy ? JSON.parse(savedEnergy) : 100;
+        const parse = savedEnergy ? JSON.parse(savedEnergy) : 100;
+        return Math.min(parse,100);
 
     });
     const [happiness, setHappiness] = useState(() => {
         const savedHappiness = localStorage.getItem('happiness');
-        return savedHappiness ? JSON.parse(savedHappiness) : 100;
+        const parse = savedHappiness ? JSON.parse(savedHappiness) : 100;
+        return Math.min(parse,100);
+
     });
     const [health, setHealth] = useState(() => {
         const savedHealth = localStorage.getItem('health');
-        return savedHealth ? JSON.parse(savedHealth) : 100;
+        const parse = savedHealth ? JSON.parse(savedHealth) : 100;
+        return Math.min(parse,100); 
     });
 
     useEffect(() => {

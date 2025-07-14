@@ -89,7 +89,7 @@ export function Dino() {
 
     return (
         <div className="game">
-            <div style={{ fontFamily: 'monospace' }}>Score : {score}</div>
+            <div style={{ fontFamily: 'monospace' }}>Điểm : {score}</div>
             {isPlay ? (
                 <>
                     <div id="dino" ref={dinoRef} style={{ transform: 'translateX(30px)' }}></div>
@@ -99,17 +99,17 @@ export function Dino() {
                 <div className="game-menu">
                     {!gameStarted ? (
                         <>
-                            <div>Press PLAY to start the game!</div>
+                            <div>Bấm CHƠI để bắt đầu</div>
                             <button onClick={startGame} className="game-button play-button">
-                                PLAY
+                                CHƠI
                             </button>
                         </>
                     ) : (
                         <>
-                            <div>GAME OVER</div>
-                            <div>Final Score: {score}</div>
+                            <div>KẾT THÚC</div>
+                            <div>Điểm: {score}</div>
                             <button onClick={retryGame} className="game-button retry-button">
-                                RETRY
+                                CHƠI LẠI
                             </button>
                         </>
                     )}

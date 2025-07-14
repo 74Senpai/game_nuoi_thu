@@ -1,0 +1,6 @@
+export const PUBLIC_ASSET_URL = "/assets"
+export const DIR_BACKGROUND_MUSIC = "/mu_van_dich"
+export const DIR_PET_EAT_FRAMES = "/bo_hung_frame"
+export const DIR_PET_STAND_FRAMES = "/bo_hung_dung_yen"
+export const DIR_PET_SAD_FRAMES = "/bo_hung_buon"
+export const DIR_PET_HUNGRY_FRAMES = "/bo_hung_doi"

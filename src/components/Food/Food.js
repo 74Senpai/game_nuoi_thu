@@ -1,6 +1,6 @@
-import { useDrag } from "../../utils"
+import { useDrag } from "../../utils";
 
-function Food({ x = 0, y = 0 }) {
+export function Food({ x = 0, y = 0 }) {
 
     const { position, handleMouseDown } = useDrag({ x, y });
 
@@ -17,17 +17,6 @@ function Food({ x = 0, y = 0 }) {
                 userSelect: 'none',
             }}>
             <img src="/assets/cut.png" />
-        </div>
-    )
-}
-
-
-export function FoodsBox() {
-    return (
-        <div className="foods-box">
-            <Food x={40} y={36} />
-            <Food x={72} y={45} />
-            <Food x={14} y={82} />
         </div>
     )
 }

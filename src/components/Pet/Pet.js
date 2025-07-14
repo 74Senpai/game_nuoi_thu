@@ -8,7 +8,7 @@ export function Pet() {
 
     const [animation, setAnimation] = useState(() => {
         if (health < 50) {
-            return "Quá là ốm luôn";
+            return PET_SAD_FRAME;
         } else if (energy < 50) {
             return PET_HUNGRY;
         } else if (happiness < 50) {
@@ -20,7 +20,7 @@ export function Pet() {
 
     useEffect(() => {
         if (health < 50) {
-            setAnimation("Quá là ốm luôn");
+            setAnimation(PET_SAD_FRAME); // ?????????????????????????????????????????
         } else if (energy < 50) {
             setAnimation(PET_HUNGRY);
         } else if (happiness < 50) {

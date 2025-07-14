@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useRef } from "react";
+import { PUBLIC_ASSET_URL, DIR_BACKGROUND_MUSIC } from "../../config.js";
+
 import { Pet } from "../Pet";
-import { FoodsBox } from "../Food/Food.js";
+import { Food } from "../Food/Food.js";
 import { Dino } from "../Dino.js";
 
 function TV({ children }) {
@@ -32,9 +34,9 @@ function BackgroundMusic() {
     return (
         <div className='speaker-design'>
             <div className="speaker-border" >
-                <div className="speaker-output" onClick={handlePlay}>
+                <div className="speaker-output" >
                     <div className="speaker"></div>
-                    <audio ref={audioRef} src={process.env.REACT_APP_MUSIC_URL + 'Morning.mp3'} loop />
+                    {/* <audio ref={audioRef} src={PUBLIC_ASSET_URL + DIR_BACKGROUND_MUSIC +'/Morning.mp3'} loop /> */}
                 </div>
                 <div className="speaker-output"><div className="speaker"></div></div>
                 <div className="speaker-output"><div className="speaker"></div></div>
@@ -47,7 +49,7 @@ function Ground() {
     return (
         <div className="home-background-ground">
             <Pet />
-            <FoodsBox />
+            <Food />
             <div className="game-frame">
                 <TV>
                     <Dino />
