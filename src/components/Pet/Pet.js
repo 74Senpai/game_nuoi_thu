@@ -2,10 +2,11 @@ import { ImageAnimator } from "../../utils";
 import { PET_EAT_FRAMES, PET_STAND_FRAMES, PET_HUNGRY, PET_SAD_FRAME } from '../../store';
 import { PetContext } from './/Petcontext.js';
 import React, { useContext, useState, useEffect } from 'react';
+import { Food } from "../../utils/Food.js";
 
 export function Pet() {
     const { energy, happiness, health } = useContext(PetContext);
-
+    
     const [animation, setAnimation] = useState(() => {
         if (health < 50) {
             return PET_SAD_FRAME;

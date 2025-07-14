@@ -6,19 +6,19 @@ export const PetProvider = ({ children }) => {
     const [energy, setEnergy] = useState(() => {
         const savedEnergy = localStorage.getItem('energy');
         const parse = savedEnergy ? JSON.parse(savedEnergy) : 100;
-        return Math.min(parse,100);
+        return Math.min(parse, 100);
 
     });
     const [happiness, setHappiness] = useState(() => {
         const savedHappiness = localStorage.getItem('happiness');
         const parse = savedHappiness ? JSON.parse(savedHappiness) : 100;
-        return Math.min(parse,100);
+        return Math.min(parse, 100);
 
     });
     const [health, setHealth] = useState(() => {
         const savedHealth = localStorage.getItem('health');
         const parse = savedHealth ? JSON.parse(savedHealth) : 100;
-        return Math.min(parse,100); 
+        return Math.min(parse, 100);
     });
 
     useEffect(() => {

@@ -47,7 +47,7 @@ function BackgroundMusic() {
 
 function Ground() {
     return (
-        <div className="home-background-ground">
+        <div className="home-background-ground" style={{position: 'relative'}}>
             <Pet />
             <Food />
             <div className="game-frame">

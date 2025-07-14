@@ -70,9 +70,20 @@
     transform: translate(-50%, 10%)
 }
 
-.pet-frame{
+.pet-frame {
     width: 100px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999999999;
 }
+
+.pet-frame img, .pet-frame .pet {
+    display: block;
+    margin: 0 auto;
+}
+
 .floating-number {
   position: absolute;
   color: #000000;

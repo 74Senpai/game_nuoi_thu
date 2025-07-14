@@ -41,7 +41,7 @@ class Food {
     }
 
     set foodName( name ){
-        this.name - name
+        this.name -= name
     }
 
     set foodEnergy(energy){

@@ -51,10 +51,7 @@ export function Dino() {
                 setGameStarted(false);
             } else {
                 setEnergy(prev => prev - 1);
-                if (happiness >= 100) {
-                    setHappiness(prev => prev + 0);
-                }
-                else setHappiness(prev => prev + 1);
+                
             }
             const isAlive = setInterval(function () {
                 // get current dino Y position
@@ -76,7 +73,12 @@ export function Dino() {
                     setScore(prev => prev + 1);
                 }
             }, 10);
-            return () => clearInterval(isAlive);
+
+            return () => {
+                const sum = Math.floor((score/100));
+                setHappiness(prev => prev + sum < 100 ? prev + sum : 100);
+                clearInterval(isAlive);
+            }
         }
 
     }, [isPlay]);

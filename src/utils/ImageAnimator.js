@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { PUBLIC_ASSET_URL } from '../config';
 
 export function ImageAnimator({ images, interval = 100 }) {
     const [index, setIndex] = useState(0);
@@ -15,7 +16,7 @@ export function ImageAnimator({ images, interval = 100 }) {
     if (!images || images.length === 0) {
         return <div>No images provided</div>;
     }
-    const imageUrl = `${process.env.REACT_APP_IMG_FRAME_URL}` + `${images[index]}`
+    const imageUrl = PUBLIC_ASSET_URL + `${images[index]}`
     return (
         <img
             src={imageUrl}
