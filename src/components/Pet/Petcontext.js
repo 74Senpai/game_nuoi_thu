@@ -33,11 +33,18 @@ export const PetProvider = ({ children }) => {
         localStorage.setItem('health', JSON.stringify(health));
     }, [health]);
 
+    const feedPet = (energyBoost = 20, happinessBoost = 15, healthBoost = 10) => {
+        setEnergy(prev => Math.min(100, prev + energyBoost));
+        setHappiness(prev => Math.min(100, prev + happinessBoost));
+        setHealth(prev => Math.min(100, prev + healthBoost));
+    };
+
     return (
         <PetContext.Provider value={{
             energy, setEnergy,
             happiness, setHappiness,
             health, setHealth,
+            feedPet,
         }}>
             {children}
         </PetContext.Provider>
