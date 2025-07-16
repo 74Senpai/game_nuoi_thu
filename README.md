@@ -1,1 +1,1 @@
-# Game nuôi thú fuk you
+# Game nuôi thú
