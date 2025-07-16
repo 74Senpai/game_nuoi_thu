@@ -33,3 +33,8 @@ export const PET_SAD_FRAME = [
 export const PET_HUNGRY = [
         DIR_PET_HUNGRY_FRAMES + '/bo_doibung.png'
 ]
+
+export const PET_FOODS = [
+        '/assets/cut.png',
+        '/assets/food.png'
+]

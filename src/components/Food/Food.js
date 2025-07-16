@@ -1,8 +1,20 @@
 import { useState, useEffect } from 'react';
+import { PET_FOODS } from '../../store';
 
 export function Food({ x = 0, y = 0, onDrop }) {
     const [position, setPosition] = useState({ x, y });
     const [dragging, setDragging] = useState(false);
+    const [imageSrc, setImageSrc] = useState('/assets/food.png');
+
+    function randomChoiceFromArray(arr) {
+        const index = Math.floor(Math.random() * arr.length);
+        return arr[index];
+    }
+
+    useEffect(() => {
+        const randomImage = randomChoiceFromArray(PET_FOODS);
+        setImageSrc(randomImage);
+    }, []);
 
     useEffect(() => {
         const handleMouseMove = (e) => {
@@ -23,9 +35,8 @@ export function Food({ x = 0, y = 0, onDrop }) {
                     const currentY = e.clientY;
 
                     onDrop(currentX, currentY, (snapTo) => {
-                        // Tính lại offset chính xác từ phần tử gốc
                         const containerRect = document
-                            .querySelector('#game-container') // 👈 container bọc toàn bộ pet/food
+                            .querySelector('#game-container')
                             ?.getBoundingClientRect();
 
                         if (!containerRect) return;
@@ -65,7 +76,7 @@ export function Food({ x = 0, y = 0, onDrop }) {
                 zIndex: 1000
             }}
         >
-            <img src="/assets/food.png" style={{ width: '100%', height: '100%' }} alt="Food" />
+            <img src={imageSrc} style={{ width: '100%', height: '100%' }} alt="Food" />
         </div>
     );
 }

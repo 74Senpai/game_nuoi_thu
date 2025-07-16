@@ -13,7 +13,7 @@ export function Pet() {
     const { energy, happiness, health, feedPet } = useContext(PetContext);
     const [animation, setAnimation] = useState(PET_STAND_FRAMES);
     const [eating, setEating] = useState(false);
-    const [foodVisible, setFoodVisible] = useState(true);
+    const [foodVisible, setFoodVisible] = useState(false);
     const [foodFade, setFoodFade] = useState(false); // ✅ trạng thái mờ dần
     const dropZoneRef = useRef(null);
 
@@ -111,7 +111,7 @@ export function Pet() {
                     cursor: foodVisible ? 'not-allowed' : 'pointer'
                 }}
             >
-                🍖 Đặt lại thức ăn
+                🍖 Đặt thức ăn
             </button>
         </div>
     );
