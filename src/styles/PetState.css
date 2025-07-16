@@ -76,7 +76,7 @@
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    z-index: 9999999999;
+    z-index: 10;
 }
 
 .pet-frame img, .pet-frame .pet {
@@ -102,4 +102,24 @@
     opacity: 0;
     transform: translateY(-30px);
   }
+}
+
+.floating-number {
+  position: absolute;
+  color: #000000;
+  animation: floatUp 1.5s ease-out forwards;
+  font-weight: bold;
+  pointer-events: none;
+  left: 90%; 
+}
+
+.pet-mouth-zone {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  right: -25px;   /* dịch phải khỏi pet */
+  top: 10%;
+  /* background-color: rgba(255, 0, 0, 0.2);
+  border: 1px dashed red;
+  pointer-events: none; */
 }

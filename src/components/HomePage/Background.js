@@ -49,7 +49,7 @@ function Ground() {
     return (
         <div className="home-background-ground" style={{position: 'relative'}}>
             <Pet />
-            <Food />
+            {/* <Food /> */}
             <div className="game-frame">
                 <TV>
                     <Dino />
